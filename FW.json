@@ -1,0 +1,2618 @@
+{
+    "spec": {
+        "_add_launchpad_and_fw_id": true,
+        "_tasks": [
+            {
+                "job": {
+                    "@module": "jobflow.core.job",
+                    "@class": "Job",
+                    "@version": "0.1.11",
+                    "function": {
+                        "@module": "mpmorph.jobs.equilibrate_volume",
+                        "@callable": "EquilibriumVolumeSearchMaker.make",
+                        "@bound": {
+                            "@module": "mpmorph.jobs.equilibrate_volume",
+                            "@class": "EquilibriumVolumeSearchMaker",
+                            "@version": "2.0",
+                            "name": "EQUIL_VOL_SEARCH",
+                            "md_maker": {
+                                "@module": "atomate2.vasp.jobs.core",
+                                "@class": "MDMaker",
+                                "@version": "0.0.10.post407+g10408f4b",
+                                "name": "molecular dynamics",
+                                "input_set_generator": {
+                                    "@module": "atomate2.vasp.sets.core",
+                                    "@class": "MDSetGenerator",
+                                    "@version": "0.0.10.post407+g10408f4b",
+                                    "user_incar_settings": {
+                                        "ISPIN": 1,
+                                        "LREAL": "Auto",
+                                        "LAECHG": false,
+                                        "EDIFFG": null,
+                                        "GGA": "PS",
+                                        "LPLANE": false,
+                                        "LDAUPRINT": 0
+                                    },
+                                    "user_kpoints_settings": {
+                                        "comment": "Default gamma",
+                                        "nkpoints": 0,
+                                        "generation_style": "Gamma",
+                                        "kpoints": [
+                                            [
+                                                1,
+                                                1,
+                                                1
+                                            ]
+                                        ],
+                                        "usershift": [
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "kpts_weights": null,
+                                        "coord_type": null,
+                                        "labels": null,
+                                        "tet_number": 0,
+                                        "tet_weight": 0,
+                                        "tet_connections": null,
+                                        "@module": "pymatgen.io.vasp.inputs",
+                                        "@class": "Kpoints"
+                                    },
+                                    "user_potcar_settings": {},
+                                    "user_potcar_functional": null,
+                                    "auto_metal_kpoints": true,
+                                    "auto_ismear": true,
+                                    "constrain_total_magmom": false,
+                                    "validate_magmom": true,
+                                    "use_structure_charge": false,
+                                    "sort_structure": true,
+                                    "force_gamma": true,
+                                    "symprec": 0.1,
+                                    "vdw": null,
+                                    "auto_ispin": true,
+                                    "auto_lreal": false,
+                                    "config_dict": {
+                                        "INCAR": {
+                                            "ALGO": "Fast",
+                                            "EDIFF": 1e-05,
+                                            "EDIFFG": -0.02,
+                                            "ENAUG": 1360,
+                                            "ENCUT": 680,
+                                            "GGA": "PS",
+                                            "IBRION": 2,
+                                            "ISIF": 3,
+                                            "ISPIN": 2,
+                                            "ISMEAR": 0,
+                                            "LORBIT": 11,
+                                            "LASPH": true,
+                                            "LDAU": true,
+                                            "LDAUJ": {
+                                                "F": {
+                                                    "Co": 0,
+                                                    "Cr": 0,
+                                                    "Fe": 0,
+                                                    "Mn": 0,
+                                                    "Mo": 0,
+                                                    "Ni": 0,
+                                                    "V": 0,
+                                                    "W": 0
+                                                },
+                                                "O": {
+                                                    "Co": 0,
+                                                    "Cr": 0,
+                                                    "Fe": 0,
+                                                    "Mn": 0,
+                                                    "Mo": 0,
+                                                    "Ni": 0,
+                                                    "V": 0,
+                                                    "W": 0
+                                                }
+                                            },
+                                            "LDAUL": {
+                                                "F": {
+                                                    "Co": 2,
+                                                    "Cr": 2,
+                                                    "Fe": 2,
+                                                    "Mn": 2,
+                                                    "Mo": 2,
+                                                    "Ni": 2,
+                                                    "V": 2,
+                                                    "W": 2
+                                                },
+                                                "O": {
+                                                    "Co": 2,
+                                                    "Cr": 2,
+                                                    "Fe": 2,
+                                                    "Mn": 2,
+                                                    "Mo": 2,
+                                                    "Ni": 2,
+                                                    "V": 2,
+                                                    "W": 2
+                                                }
+                                            },
+                                            "LDAUTYPE": 2,
+                                            "LDAUU": {
+                                                "F": {
+                                                    "Co": 3.32,
+                                                    "Cr": 3.7,
+                                                    "Fe": 5.3,
+                                                    "Mn": 3.9,
+                                                    "Mo": 4.38,
+                                                    "Ni": 6.2,
+                                                    "V": 3.25,
+                                                    "W": 6.2
+                                                },
+                                                "O": {
+                                                    "Co": 3.32,
+                                                    "Cr": 3.7,
+                                                    "Fe": 5.3,
+                                                    "Mn": 3.9,
+                                                    "Mo": 4.38,
+                                                    "Ni": 6.2,
+                                                    "V": 3.25,
+                                                    "W": 6.2
+                                                }
+                                            },
+                                            "LDAUPRINT": 1,
+                                            "LREAL": false,
+                                            "LMIXTAU": true,
+                                            "LCHARG": true,
+                                            "LAECHG": true,
+                                            "LELF": false,
+                                            "LWAVE": false,
+                                            "LVTOT": true,
+                                            "MAGMOM": {
+                                                "Ce": 5,
+                                                "Ce3+": 1,
+                                                "Co": 0.6,
+                                                "Co3+": 0.6,
+                                                "Co4+": 1,
+                                                "Cr": 5,
+                                                "Dy3+": 5,
+                                                "Er3+": 3,
+                                                "Eu": 10,
+                                                "Eu2+": 7,
+                                                "Eu3+": 6,
+                                                "Fe": 5,
+                                                "Gd3+": 7,
+                                                "Ho3+": 4,
+                                                "La3+": 0.6,
+                                                "Lu3+": 0.6,
+                                                "Mn": 5,
+                                                "Mn3+": 4,
+                                                "Mn4+": 3,
+                                                "Mo": 5,
+                                                "Nd3+": 3,
+                                                "Ni": 5,
+                                                "Pm3+": 4,
+                                                "Pr3+": 2,
+                                                "Sm3+": 5,
+                                                "Tb3+": 6,
+                                                "Tm3+": 2,
+                                                "V": 5,
+                                                "W": 5,
+                                                "Yb3+": 1
+                                            },
+                                            "NELM": 200,
+                                            "NSW": 99,
+                                            "PREC": "Accurate",
+                                            "SIGMA": 0.05
+                                        },
+                                        "KPOINTS": {
+                                            "reciprocal_density": 64,
+                                            "reciprocal_density_metal": 200
+                                        },
+                                        "POTCAR_FUNCTIONAL": "PBE_54",
+                                        "POTCAR": {
+                                            "Ac": "Ac",
+                                            "Ag": "Ag",
+                                            "Al": "Al",
+                                            "Am": "Am",
+                                            "Ar": "Ar",
+                                            "As": "As",
+                                            "At": "At",
+                                            "Au": "Au",
+                                            "B": "B",
+                                            "Ba": "Ba_sv",
+                                            "Be": "Be",
+                                            "Bi": "Bi_d",
+                                            "Br": "Br",
+                                            "C": "C",
+                                            "Ca": "Ca_sv",
+                                            "Cd": "Cd",
+                                            "Ce": "Ce",
+                                            "Cf": "Cf",
+                                            "Cl": "Cl",
+                                            "Cm": "Cm",
+                                            "Co": "Co",
+                                            "Cr": "Cr_pv",
+                                            "Cs": "Cs_sv",
+                                            "Cu": "Cu",
+                                            "Dy": "Dy_3",
+                                            "Er": "Er_3",
+                                            "Eu": "Eu_2",
+                                            "F": "F",
+                                            "Fe": "Fe",
+                                            "Fr": "Fr_sv",
+                                            "Ga": "Ga_d",
+                                            "Gd": "Gd_3",
+                                            "Ge": "Ge_d",
+                                            "H": "H",
+                                            "He": "He",
+                                            "Hf": "Hf_pv",
+                                            "Hg": "Hg",
+                                            "Ho": "Ho_3",
+                                            "I": "I",
+                                            "In": "In_d",
+                                            "Ir": "Ir",
+                                            "K": "K_sv",
+                                            "Kr": "Kr",
+                                            "La": "La",
+                                            "Li": "Li_sv",
+                                            "Lu": "Lu_3",
+                                            "Mg": "Mg",
+                                            "Mn": "Mn_pv",
+                                            "Mo": "Mo_sv",
+                                            "N": "N",
+                                            "Na": "Na_pv",
+                                            "Nb": "Nb_sv",
+                                            "Nd": "Nd_3",
+                                            "Ne": "Ne",
+                                            "Ni": "Ni",
+                                            "Np": "Np",
+                                            "O": "O",
+                                            "Os": "Os",
+                                            "P": "P",
+                                            "Pa": "Pa",
+                                            "Pb": "Pb_d",
+                                            "Pd": "Pd",
+                                            "Pm": "Pm_3",
+                                            "Po": "Po_d",
+                                            "Pr": "Pr_3",
+                                            "Pt": "Pt",
+                                            "Pu": "Pu",
+                                            "Ra": "Ra_sv",
+                                            "Rb": "Rb_sv",
+                                            "Re": "Re",
+                                            "Rh": "Rh_pv",
+                                            "Rn": "Rn",
+                                            "Ru": "Ru_pv",
+                                            "S": "S",
+                                            "Sb": "Sb",
+                                            "Sc": "Sc_sv",
+                                            "Se": "Se",
+                                            "Si": "Si",
+                                            "Sm": "Sm_3",
+                                            "Sn": "Sn_d",
+                                            "Sr": "Sr_sv",
+                                            "Ta": "Ta_pv",
+                                            "Tb": "Tb_3",
+                                            "Tc": "Tc_pv",
+                                            "Te": "Te",
+                                            "Th": "Th",
+                                            "Ti": "Ti_sv",
+                                            "Tl": "Tl_d",
+                                            "Tm": "Tm_3",
+                                            "U": "U",
+                                            "V": "V_sv",
+                                            "W": "W_sv",
+                                            "Xe": "Xe",
+                                            "Y": "Y_sv",
+                                            "Yb": "Yb_3",
+                                            "Zn": "Zn",
+                                            "Zr": "Zr_sv"
+                                        }
+                                    },
+                                    "ensemble": "nvt",
+                                    "start_temp": 5000,
+                                    "end_temp": 5000,
+                                    "nsteps": 3000,
+                                    "time_step": 2
+                                },
+                                "write_input_set_kwargs": {},
+                                "copy_vasp_kwargs": {},
+                                "run_vasp_kwargs": {
+                                    "handlers": [
+                                        {
+                                            "@module": "custodian.vasp.handlers",
+                                            "@class": "VaspErrorHandler",
+                                            "@version": "2023.6.5",
+                                            "output_filename": "vasp.out",
+                                            "errors_subset_to_catch": [
+                                                "tet",
+                                                "inv_rot_mat",
+                                                "brmix",
+                                                "subspacematrix",
+                                                "tetirr",
+                                                "incorrect_shift",
+                                                "real_optlay",
+                                                "rspher",
+                                                "dentet",
+                                                "too_few_bands",
+                                                "triple_product",
+                                                "rot_matrix",
+                                                "brions",
+                                                "pricel",
+                                                "zpotrf",
+                                                "amin",
+                                                "zbrent",
+                                                "pssyevx",
+                                                "eddrmm",
+                                                "edddav",
+                                                "algo_tet",
+                                                "grad_not_orth",
+                                                "nicht_konv",
+                                                "zheev",
+                                                "elf_kpar",
+                                                "elf_ncl",
+                                                "rhosyg",
+                                                "posmap",
+                                                "point_group",
+                                                "symprec_noise",
+                                                "dfpt_ncore",
+                                                "bravais",
+                                                "nbands_not_sufficient",
+                                                "hnform",
+                                                "coef",
+                                                "set_core_wf",
+                                                "read_error"
+                                            ],
+                                            "vtst_fixes": false
+                                        },
+                                        {
+                                            "@module": "custodian.vasp.handlers",
+                                            "@class": "MeshSymmetryErrorHandler",
+                                            "@version": "2023.6.5",
+                                            "output_filename": "vasp.out",
+                                            "output_vasprun": "vasprun.xml"
+                                        },
+                                        {
+                                            "@module": "custodian.vasp.handlers",
+                                            "@class": "PositiveEnergyErrorHandler",
+                                            "@version": "2023.6.5",
+                                            "output_filename": "OSZICAR"
+                                        },
+                                        {
+                                            "@module": "custodian.vasp.handlers",
+                                            "@class": "FrozenJobErrorHandler",
+                                            "@version": "2023.6.5",
+                                            "output_filename": "vasp.out",
+                                            "timeout": 21600
+                                        },
+                                        {
+                                            "@module": "custodian.vasp.handlers",
+                                            "@class": "StdErrHandler",
+                                            "@version": "2023.6.5",
+                                            "output_filename": "std_err.txt"
+                                        },
+                                        {
+                                            "@module": "custodian.vasp.handlers",
+                                            "@class": "LargeSigmaHandler",
+                                            "@version": "2023.6.5"
+                                        },
+                                        {
+                                            "@module": "custodian.vasp.handlers",
+                                            "@class": "IncorrectSmearingHandler",
+                                            "@version": "2023.6.5",
+                                            "output_filename": "vasprun.xml"
+                                        }
+                                    ]
+                                },
+                                "task_document_kwargs": {
+                                    "store_trajectory": true
+                                },
+                                "stop_children_kwargs": {},
+                                "write_additional_data": {}
+                            },
+                            "pv_extractor": {
+                                "@module": "mpmorph.jobs.pv_from_calc",
+                                "@class": "PVFromVasp",
+                                "@version": "2.0"
+                            },
+                            "initial_scale_factors": [
+                                0.8,
+                                1,
+                                1.2
+                            ]
+                        }
+                    },
+                    "function_args": [
+                        {
+                            "@module": "pymatgen.core.structure",
+                            "@class": "Structure",
+                            "charge": 0,
+                            "lattice": {
+                                "matrix": [
+                                    [
+                                        11.788813196292748,
+                                        0.0,
+                                        0.0
+                                    ],
+                                    [
+                                        0.0,
+                                        11.788813196292748,
+                                        0.0
+                                    ],
+                                    [
+                                        0.0,
+                                        0.0,
+                                        11.788813196292748
+                                    ]
+                                ],
+                                "pbc": [
+                                    true,
+                                    true,
+                                    true
+                                ],
+                                "a": 11.788813196292748,
+                                "b": 11.788813196292748,
+                                "c": 11.788813196292748,
+                                "alpha": 90.0,
+                                "beta": 90.0,
+                                "gamma": 90.0,
+                                "volume": 1638.3634770734716
+                            },
+                            "sites": [
+                                {
+                                    "species": [
+                                        {
+                                            "element": "Mo",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08599915726197276,
+                                        0.39166945163335154,
+                                        0.30464805406615536
+                                    ],
+                                    "xyz": [
+                                        1.0138279999999997,
+                                        4.617317999999999,
+                                        3.591438999999999
+                                    ],
+                                    "label": "Mo",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "Mo",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.39708119231816136,
+                                        0.08278483879165241,
+                                        0.8226702585337295
+                                    ],
+                                    "xyz": [
+                                        4.681115999999999,
+                                        0.9759349999999998,
+                                        9.698305999999999
+                                    ],
+                                    "label": "Mo",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "Mo",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.12539515007879426,
+                                        0.7639286372636793,
+                                        0.6529740417314219
+                                    ],
+                                    "xyz": [
+                                        1.4782599999999995,
+                                        9.005811999999999,
+                                        7.697788999999998
+                                    ],
+                                    "label": "Mo",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "Mo",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7461004643593793,
+                                        0.12541924071415098,
+                                        0.4004556626178951
+                                    ],
+                                    "xyz": [
+                                        8.795638999999998,
+                                        1.4785439999999999,
+                                        4.720896999999999
+                                    ],
+                                    "label": "Mo",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "Mo",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.22438026253837268,
+                                        0.44553984464286256,
+                                        0.18919919782098238
+                                    ],
+                                    "xyz": [
+                                        2.6451769999999994,
+                                        5.2523859999999996,
+                                        2.2304339999999994
+                                    ],
+                                    "label": "Mo",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.19290957979681653,
+                                        0.709941184124618,
+                                        0.281443088863549
+                                    ],
+                                    "xyz": [
+                                        2.2741749999999996,
+                                        8.369363999999997,
+                                        3.3178799999999993
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.25449983387161434,
+                                        0.5277426061816362,
+                                        0.36119742751874706
+                                    ],
+                                    "xyz": [
+                                        3.0002509999999996,
+                                        6.221458999999999,
+                                        4.258088999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.09255935960908605,
+                                        0.5324731926343536,
+                                        0.08985620370446784
+                                    ],
+                                    "xyz": [
+                                        1.0911649999999997,
+                                        6.277226999999998,
+                                        1.0592979999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.24007081568567076,
+                                        0.3411264503932118,
+                                        0.38874727452982144
+                                    ],
+                                    "xyz": [
+                                        2.8301499999999997,
+                                        4.021475999999999,
+                                        4.582868999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.3503810715483175,
+                                        0.6755009912706268,
+                                        0.42061833684491134
+                                    ],
+                                    "xyz": [
+                                        4.130576999999999,
+                                        7.963354999999998,
+                                        4.958590999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5138826868429038,
+                                        0.12356612796766434,
+                                        0.679928324126865
+                                    ],
+                                    "xyz": [
+                                        6.0580669999999985,
+                                        1.4566979999999998,
+                                        8.015547999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7480368764154444,
+                                        0.2937802934301408,
+                                        0.32672593380402826
+                                    ],
+                                    "xyz": [
+                                        8.818466999999998,
+                                        3.4633209999999996,
+                                        3.8517109999999994
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.796522842770374,
+                                        0.19657720937751058,
+                                        0.8923260403607104
+                                    ],
+                                    "xyz": [
+                                        9.390058999999999,
+                                        2.3174119999999996,
+                                        10.519464999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.43376291700067543,
+                                        0.8722616796772801,
+                                        0.29839407423185066
+                                    ],
+                                    "xyz": [
+                                        5.113549999999998,
+                                        10.282929999999999,
+                                        3.517711999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5567299176531134,
+                                        0.3899955766069659,
+                                        0.2644645349864765
+                                    ],
+                                    "xyz": [
+                                        6.563184999999999,
+                                        4.597584999999999,
+                                        3.1177229999999994
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.11550501117688469,
+                                        0.39798009535645296,
+                                        0.5067381169360292
+                                    ],
+                                    "xyz": [
+                                        1.3616669999999997,
+                                        4.691712999999999,
+                                        5.973840999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.8260183478912242,
+                                        0.4250465179629577,
+                                        0.220012816965803
+                                    ],
+                                    "xyz": [
+                                        9.737775999999998,
+                                        5.010793999999999,
+                                        2.5936899999999996
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6973886058848904,
+                                        0.8428080786897616,
+                                        0.464702333371672
+                                    ],
+                                    "xyz": [
+                                        8.221383999999999,
+                                        9.935706999999999,
+                                        5.478288999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.746481503563683,
+                                        0.9014911698950367,
+                                        0.6904052057215992
+                                    ],
+                                    "xyz": [
+                                        8.800130999999999,
+                                        10.627510999999997,
+                                        8.139057999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.2264706341126504,
+                                        0.2625900460424198,
+                                        0.22132202424078581
+                                    ],
+                                    "xyz": [
+                                        2.6698199999999996,
+                                        3.095624999999999,
+                                        2.6091239999999996
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.4289990786850712,
+                                        0.47274402496704077,
+                                        0.4628385325264004
+                                    ],
+                                    "xyz": [
+                                        5.057389999999999,
+                                        5.573090999999999,
+                                        5.456316999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5283982277332975,
+                                        0.3131927649138663,
+                                        0.08576274669599006
+                                    ],
+                                    "xyz": [
+                                        6.229187999999998,
+                                        3.692170999999999,
+                                        1.0110409999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.20928052374057934,
+                                        0.22194312153684803,
+                                        0.7686195250637667
+                                    ],
+                                    "xyz": [
+                                        2.4671689999999997,
+                                        2.6164459999999994,
+                                        9.061111999999998
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.47032249198278947,
+                                        0.907344685329627,
+                                        0.1182190248326496
+                                    ],
+                                    "xyz": [
+                                        5.544543999999999,
+                                        10.696516999999998,
+                                        1.3936619999999997
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7798385509146125,
+                                        0.27127599248121836,
+                                        0.7223712733592225
+                                    ],
+                                    "xyz": [
+                                        9.193370999999999,
+                                        3.1980219999999995,
+                                        8.515899999999998
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.09011136085641473,
+                                        0.607686955481901,
+                                        0.3987112970352369
+                                    ],
+                                    "xyz": [
+                                        1.0623059999999998,
+                                        7.163907999999998,
+                                        4.700332999999999
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6087504213110094,
+                                        0.40833609964349965,
+                                        0.44225299978792965
+                                    ],
+                                    "xyz": [
+                                        7.176444999999998,
+                                        4.813797999999999,
+                                        5.2136379999999996
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.26267843492284826,
+                                        0.08454370965123313,
+                                        0.2610032875037501
+                                    ],
+                                    "xyz": [
+                                        3.0966669999999996,
+                                        0.9966699999999997,
+                                        3.0769189999999997
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6111812851751525,
+                                        0.9145719607628141,
+                                        0.2602425663140361
+                                    ],
+                                    "xyz": [
+                                        7.205101999999999,
+                                        10.781717999999996,
+                                        3.0679509999999994
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "P",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5285884928569068,
+                                        0.782801274932581,
+                                        0.5966435198253803
+                                    ],
+                                    "xyz": [
+                                        6.231430999999998,
+                                        9.228297999999999,
+                                        7.033718999999998
+                                    ],
+                                    "label": "P",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6487587743272674,
+                                        0.0818978962448583,
+                                        0.5552755727827245
+                                    ],
+                                    "xyz": [
+                                        7.648095999999999,
+                                        0.9654789999999999,
+                                        6.546039999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.2873077165278284,
+                                        0.08299240845615176,
+                                        0.6714981286232791
+                                    ],
+                                    "xyz": [
+                                        3.3870169999999993,
+                                        0.9783819999999998,
+                                        7.916165999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.48305142385246985,
+                                        0.9146228564713142,
+                                        0.47308748617323526
+                                    ],
+                                    "xyz": [
+                                        5.694602999999998,
+                                        10.782317999999998,
+                                        5.577139999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.4980732922162581,
+                                        0.707317340699079,
+                                        0.09309529141959154
+                                    ],
+                                    "xyz": [
+                                        5.871692999999998,
+                                        8.338431999999997,
+                                        1.0974829999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08680127362793347,
+                                        0.24162958158466546,
+                                        0.4097144402558617
+                                    ],
+                                    "xyz": [
+                                        1.0232839999999999,
+                                        2.8485259999999997,
+                                        4.830046999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5360102747227451,
+                                        0.6790742941382342,
+                                        0.4379375526642108
+                                    ],
+                                    "xyz": [
+                                        6.318924999999999,
+                                        8.005479999999999,
+                                        5.162763999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7769966193781508,
+                                        0.1033812292812698,
+                                        0.2167416649543243
+                                    ],
+                                    "xyz": [
+                                        9.159867999999998,
+                                        1.2187419999999998,
+                                        2.5551269999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.37442895450986546,
+                                        0.4167964084412813,
+                                        0.08285371765048914
+                                    ],
+                                    "xyz": [
+                                        4.414072999999999,
+                                        4.9135349999999995,
+                                        0.9767469999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.18370933222362504,
+                                        0.6964459325372887,
+                                        0.08686141539014434
+                                    ],
+                                    "xyz": [
+                                        2.1657149999999996,
+                                        8.210270999999999,
+                                        1.0239929999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.9151424168289188,
+                                        0.7886539421053629,
+                                        0.6795610267638562
+                                    ],
+                                    "xyz": [
+                                        10.788442999999997,
+                                        9.297293999999999,
+                                        8.011217999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.35894826133394925,
+                                        0.22986690474085839,
+                                        0.09198678288846054
+                                    ],
+                                    "xyz": [
+                                        4.231573999999999,
+                                        2.7098579999999997,
+                                        1.0844149999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08559818390517324,
+                                        0.8507018334257568,
+                                        0.1260802063152049
+                                    ],
+                                    "xyz": [
+                                        1.0091009999999998,
+                                        10.028764999999996,
+                                        1.4863359999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.9148630842154344,
+                                        0.08531189554486047,
+                                        0.6142679402433184
+                                    ],
+                                    "xyz": [
+                                        10.785149999999996,
+                                        1.0057259999999997,
+                                        7.241489999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5363445747014096,
+                                        0.5039271469555717,
+                                        0.1140087621731642
+                                    ],
+                                    "xyz": [
+                                        6.322865999999999,
+                                        5.940702999999999,
+                                        1.3440279999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.8231268778651558,
+                                        0.878699901976355,
+                                        0.295937083904011
+                                    ],
+                                    "xyz": [
+                                        9.703688999999999,
+                                        10.358828999999998,
+                                        3.4887469999999996
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.505559457153349,
+                                        0.20244760522208663,
+                                        0.9147034413431059
+                                    ],
+                                    "xyz": [
+                                        5.9599459999999995,
+                                        2.3866169999999998,
+                                        10.783267999999996
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.20855212132576284,
+                                        0.848558106183735,
+                                        0.46781994999584225
+                                    ],
+                                    "xyz": [
+                                        2.4585819999999994,
+                                        10.003492999999997,
+                                        5.515041999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5590767187720505,
+                                        0.38099865738923205,
+                                        0.9148320378332494
+                                    ],
+                                    "xyz": [
+                                        6.590850999999998,
+                                        4.491521999999999,
+                                        10.784783999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.38178499608555777,
+                                        0.22379725219750468,
+                                        0.5946332241658094
+                                    ],
+                                    "xyz": [
+                                        4.500791999999999,
+                                        2.6383039999999993,
+                                        7.010019999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7954546266751388,
+                                        0.6718379423036978,
+                                        0.9150543672532138
+                                    ],
+                                    "xyz": [
+                                        9.377465999999998,
+                                        7.920171999999998,
+                                        10.787404999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.29359511787738146,
+                                        0.38290563476054795,
+                                        0.5585182231974433
+                                    ],
+                                    "xyz": [
+                                        3.4611379999999996,
+                                        4.514002999999999,
+                                        6.584266999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.9151286749876238,
+                                        0.5752548528067789,
+                                        0.152403042620524
+                                    ],
+                                    "xyz": [
+                                        10.788280999999998,
+                                        6.781571999999998,
+                                        1.7966509999999996
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5736887918562326,
+                                        0.4428554353242085,
+                                        0.7400867970953757
+                                    ],
+                                    "xyz": [
+                                        6.763109999999998,
+                                        5.220739999999999,
+                                        8.724744999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.9152301270999006,
+                                        0.25119890787066307,
+                                        0.255492893970631
+                                    ],
+                                    "xyz": [
+                                        10.789476999999998,
+                                        2.961336999999999,
+                                        3.011957999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5932171359029765,
+                                        0.09168760094866113,
+                                        0.17428022361454504
+                                    ],
+                                    "xyz": [
+                                        6.993325999999999,
+                                        1.0808879999999998,
+                                        2.0545569999999995
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7537629829264227,
+                                        0.08748683882142907,
+                                        0.7094933018898177
+                                    ],
+                                    "xyz": [
+                                        8.885970999999998,
+                                        1.0313659999999998,
+                                        8.364083999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5204652833017571,
+                                        0.3469808989157912,
+                                        0.5946997278915829
+                                    ],
+                                    "xyz": [
+                                        6.135667999999998,
+                                        4.0904929999999995,
+                                        7.0108039999999985
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.35521302528713095,
+                                        0.9106504464228857,
+                                        0.614766209229534
+                                    ],
+                                    "xyz": [
+                                        4.187539999999999,
+                                        10.735487999999998,
+                                        7.247363999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.8851636569558606,
+                                        0.5964250924097344,
+                                        0.5130312016396981
+                                    ],
+                                    "xyz": [
+                                        10.435028999999997,
+                                        7.0311439999999985,
+                                        6.048028999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.2201423465439356,
+                                        0.0868732062292802,
+                                        0.453382109887092
+                                    ],
+                                    "xyz": [
+                                        2.5952169999999994,
+                                        1.0241319999999998,
+                                        5.344836999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7746152091774337,
+                                        0.520177722548732,
+                                        0.6561204992570755
+                                    ],
+                                    "xyz": [
+                                        9.131793999999998,
+                                        6.1322779999999995,
+                                        7.734881999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.15882251833363467,
+                                        0.32882580591055927,
+                                        0.9135467515412616
+                                    ],
+                                    "xyz": [
+                                        1.8723289999999995,
+                                        3.8764659999999993,
+                                        10.769631999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.2909277586210749,
+                                        0.8477145098153468,
+                                        0.08487605862773843
+                                    ],
+                                    "xyz": [
+                                        3.429692999999999,
+                                        9.993547999999999,
+                                        1.0005879999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6962918881928953,
+                                        0.4100394093546345,
+                                        0.08683147174831017
+                                    ],
+                                    "xyz": [
+                                        8.208454999999999,
+                                        4.8338779999999995,
+                                        1.0236399999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5784809621162351,
+                                        0.21626909830090135,
+                                        0.4105084981346432
+                                    ],
+                                    "xyz": [
+                                        6.819603999999998,
+                                        2.5495559999999995,
+                                        4.839407999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7774903925767821,
+                                        0.7076233935595262,
+                                        0.3640738833108079
+                                    ],
+                                    "xyz": [
+                                        9.165688999999999,
+                                        8.342039999999999,
+                                        4.291998999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08569497057750416,
+                                        0.3324596746712817,
+                                        0.6825817718895149
+                                    ],
+                                    "xyz": [
+                                        1.0102419999999999,
+                                        3.9193049999999996,
+                                        8.046828999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08111893742626511,
+                                        0.07988878815181902,
+                                        0.588430055213824
+                                    ],
+                                    "xyz": [
+                                        0.9562959999999998,
+                                        0.9417939999999998,
+                                        6.9368919999999985
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6492695975882462,
+                                        0.08453895938510646,
+                                        0.9043138458884492
+                                    ],
+                                    "xyz": [
+                                        7.6541179999999995,
+                                        0.9966139999999997,
+                                        10.660786999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6703095441774415,
+                                        0.6365169143879323,
+                                        0.10453987008527334
+                                    ],
+                                    "xyz": [
+                                        7.9021539999999995,
+                                        7.503778999999998,
+                                        1.2324009999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08437549933464049,
+                                        0.07939509977936858,
+                                        0.31840923573039753
+                                    ],
+                                    "xyz": [
+                                        0.9946869999999998,
+                                        0.9359739999999998,
+                                        3.7536669999999988
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.09483312538632556,
+                                        0.7548409540324537,
+                                        0.8365065113680092
+                                    ],
+                                    "xyz": [
+                                        1.1179699999999997,
+                                        8.898678999999998,
+                                        9.861418999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.26590946415079275,
+                                        0.5676950587447248,
+                                        0.5437806073656278
+                                    ],
+                                    "xyz": [
+                                        3.134756999999999,
+                                        6.692450999999999,
+                                        6.410527999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.3342795355548816,
+                                        0.3578250778735341,
+                                        0.738590123960751
+                                    ],
+                                    "xyz": [
+                                        3.9407589999999995,
+                                        4.2183329999999994,
+                                        8.707100999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.8842438018509031,
+                                        0.4054371649135179,
+                                        0.9048564789672406
+                                    ],
+                                    "xyz": [
+                                        10.424184999999998,
+                                        4.779622999999999,
+                                        10.667183999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.64613102889741,
+                                        0.5946019233050819,
+                                        0.831502360482104
+                                    ],
+                                    "xyz": [
+                                        7.617117999999999,
+                                        7.009650999999998,
+                                        9.802425999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7993758865365248,
+                                        0.7699007396990746,
+                                        0.08565595053432078
+                                    ],
+                                    "xyz": [
+                                        9.423692999999998,
+                                        9.076215999999999,
+                                        1.0097819999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.19630949795080035,
+                                        0.22223848629850995,
+                                        0.5817482969495764
+                                    ],
+                                    "xyz": [
+                                        2.3142559999999994,
+                                        2.6199279999999994,
+                                        6.858121999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.20090792521377943,
+                                        0.8957842341009268,
+                                        0.26578663584094603
+                                    ],
+                                    "xyz": [
+                                        2.3684659999999993,
+                                        10.560232999999998,
+                                        3.1333089999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.46685055640127804,
+                                        0.5611227262537523,
+                                        0.3021139567399381
+                                    ],
+                                    "xyz": [
+                                        5.503613999999999,
+                                        6.614970999999998,
+                                        3.561564999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.39447456860733154,
+                                        0.5968144445797597,
+                                        0.9147340635943868
+                                    ],
+                                    "xyz": [
+                                        4.650386999999999,
+                                        7.035733999999999,
+                                        10.783628999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.4799403388442238,
+                                        0.22248846905342604,
+                                        0.24347828336974875
+                                    ],
+                                    "xyz": [
+                                        5.657926999999999,
+                                        2.6228749999999996,
+                                        2.870319999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.9150122934675203,
+                                        0.1985685887987557,
+                                        0.43826905337890776
+                                    ],
+                                    "xyz": [
+                                        10.786908999999996,
+                                        2.3408879999999996,
+                                        5.166671999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.35869938131938406,
+                                        0.7086602239678528,
+                                        0.6306681492194688
+                                    ],
+                                    "xyz": [
+                                        4.2286399999999995,
+                                        8.354262999999998,
+                                        7.434828999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.1864504054310758,
+                                        0.525884149385757,
+                                        0.9148675800030186
+                                    ],
+                                    "xyz": [
+                                        2.1980289999999996,
+                                        6.1995499999999995,
+                                        10.785202999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08350017797462055,
+                                        0.08372819074870075,
+                                        0.7748967472716198
+                                    ],
+                                    "xyz": [
+                                        0.9843679999999998,
+                                        0.9870559999999998,
+                                        9.135112999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.5741518579774022,
+                                        0.597129489015375,
+                                        0.6343702182295813
+                                    ],
+                                    "xyz": [
+                                        6.768568999999999,
+                                        7.039447999999998,
+                                        7.478471999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.602185214219227,
+                                        0.2630856005908486,
+                                        0.765925784865221
+                                    ],
+                                    "xyz": [
+                                        7.099048999999999,
+                                        3.1014669999999995,
+                                        9.029355999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.3735135103663113,
+                                        0.7083013243967468,
+                                        0.23536236886615075
+                                    ],
+                                    "xyz": [
+                                        4.403280999999999,
+                                        8.350031999999999,
+                                        2.7746429999999993
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.9146399065336618,
+                                        0.3307464402969893,
+                                        0.08550037931867233
+                                    ],
+                                    "xyz": [
+                                        10.782518999999999,
+                                        3.899107999999999,
+                                        1.0079479999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.23176098853268756,
+                                        0.09418428992913082,
+                                        0.07864710251677959
+                                    ],
+                                    "xyz": [
+                                        2.7321869999999997,
+                                        1.1103209999999997,
+                                        0.9271559999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.3717495499358806,
+                                        0.5534110933280063,
+                                        0.7346765832818207
+                                    ],
+                                    "xyz": [
+                                        4.382485999999999,
+                                        6.524059999999999,
+                                        8.660964999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.30968469337931986,
+                                        0.7615058318867154,
+                                        0.8915968745102664
+                                    ],
+                                    "xyz": [
+                                        3.6508149999999997,
+                                        8.977249999999998,
+                                        10.510868999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.3542157238790726,
+                                        0.19661902868466147,
+                                        0.38049063339222083
+                                    ],
+                                    "xyz": [
+                                        4.175782999999999,
+                                        2.3179049999999997,
+                                        4.485532999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7556981225897753,
+                                        0.23412628175904632,
+                                        0.08413832533303027
+                                    ],
+                                    "xyz": [
+                                        8.908783999999999,
+                                        2.7600709999999995,
+                                        0.9918909999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.33998630169662997,
+                                        0.5982737093686369,
+                                        0.08938202535360909
+                                    ],
+                                    "xyz": [
+                                        4.008034999999999,
+                                        7.052936999999999,
+                                        1.0537079999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.709143902850965,
+                                        0.561341832278845,
+                                        0.27079833625694544
+                                    ],
+                                    "xyz": [
+                                        8.359964999999999,
+                                        6.617553999999999,
+                                        3.1923909999999993
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.10282349714229014,
+                                        0.34364841757556985,
+                                        0.08599415251730358
+                                    ],
+                                    "xyz": [
+                                        1.2121669999999998,
+                                        4.051206999999999,
+                                        1.0137689999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08011298374776171,
+                                        0.170478653494315,
+                                        0.1554806212873409
+                                    ],
+                                    "xyz": [
+                                        0.9444369999999997,
+                                        2.0097409999999996,
+                                        1.8329319999999996
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.6887636494701112,
+                                        0.5753574076594066,
+                                        0.4631193920111398
+                                    ],
+                                    "xyz": [
+                                        8.119705999999999,
+                                        6.782780999999999,
+                                        5.4596279999999995
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.4514600334555878,
+                                        0.08382370502831916,
+                                        0.49351430912736666
+                                    ],
+                                    "xyz": [
+                                        5.322177999999999,
+                                        0.9881819999999998,
+                                        5.817947999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.7315789856363272,
+                                        0.3153797535081132,
+                                        0.5479562609433332
+                                    ],
+                                    "xyz": [
+                                        8.624447999999997,
+                                        3.717952999999999,
+                                        6.459753999999998
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.45734603731743717,
+                                        0.7680723961973913,
+                                        0.7774319473381878
+                                    ],
+                                    "xyz": [
+                                        5.391566999999999,
+                                        9.054661999999999,
+                                        9.164999999999997
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08482541739778088,
+                                        0.5951209747056015,
+                                        0.5844751193586472
+                                    ],
+                                    "xyz": [
+                                        0.9999909999999997,
+                                        7.015769999999998,
+                                        6.890267999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                },
+                                {
+                                    "species": [
+                                        {
+                                            "element": "O",
+                                            "occu": 1
+                                        }
+                                    ],
+                                    "abc": [
+                                        0.08496071515621018,
+                                        0.5289624066620205,
+                                        0.7587590753251489
+                                    ],
+                                    "xyz": [
+                                        1.0015859999999999,
+                                        6.2358389999999995,
+                                        8.944868999999999
+                                    ],
+                                    "label": "O",
+                                    "properties": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "function_kwargs": {},
+                    "output_schema": null,
+                    "uuid": "6de62305-f099-4f26-995e-ea470c7ba7e0",
+                    "index": 1,
+                    "name": "EQUIL_VOL_SEARCH",
+                    "metadata": {},
+                    "config": {
+                        "@module": "jobflow.core.job",
+                        "@class": "JobConfig",
+                        "@version": "0.1.11",
+                        "resolve_references": true,
+                        "on_missing_references": "error",
+                        "manager_config": {},
+                        "expose_store": false,
+                        "pass_manager_config": true,
+                        "response_manager_config": {}
+                    },
+                    "hosts": [
+                        "f64ac059-46f9-487c-81e8-10a6fa476b92",
+                        "25c01fb8-efbe-4f3f-beec-191d55719be9"
+                    ],
+                    "metadata_updates": [],
+                    "config_updates": []
+                },
+                "store": null,
+                "_fw_name": "{{jobflow.managers.fireworks.JobFiretask}}"
+            }
+        ]
+    },
+    "fw_id": 2398,
+    "created_on": "2023-07-17T19:13:42.996737",
+    "updated_on": "2023-07-17T19:14:42.900133",
+    "launches": [
+        {
+            "fworker": {
+                "name": "fast_fworker",
+                "category": "",
+                "query": "{\"$or\": [{\"name\": \"EQUIL_VOL_SEARCH\"}]}",
+                "env": {}
+            },
+            "fw_id": 2398,
+            "launch_dir": "/global/u2/m/mcg/src/mpmorph",
+            "host": "login23",
+            "ip": "128.55.64.32",
+            "trackers": [],
+            "action": null,
+            "state": "RUNNING",
+            "state_history": [
+                {
+                    "state": "RUNNING",
+                    "created_on": "2023-07-17T19:14:42.896215",
+                    "updated_on": "2023-07-17T19:14:42.896218"
+                }
+            ],
+            "launch_id": 1354
+        }
+    ],
+    "state": "RUNNING",
+    "name": "EQUIL_VOL_SEARCH"
+}
